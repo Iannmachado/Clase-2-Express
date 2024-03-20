@@ -1,2 +1,6 @@
 ###README
-este es el readme
+Dependencies {
+    axios
+    nodemon
+}
+npm run dev para correr index.js
