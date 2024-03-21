@@ -34,9 +34,9 @@ app.get( '/',(req, res)=>{
     res.status(200).send('hola estoy conectado a express')
 } );
 //envio un archivo al front
-// app.get('/index',(req, res)=>{
-//     res.sendFile(__dirname+ '/index.html');
-// } );
+ app.get('/index',(req, res)=>{
+     res.sendFile(__dirname+ 'index.html');
+ } ); 
 //descargo un archivo
 app.get('/descargas',(req, res)=>{
     res.download(__dirname+'/descarga.txt')
