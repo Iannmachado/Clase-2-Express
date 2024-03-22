@@ -19,12 +19,7 @@ app.use(express.urlencoded({extended:true}))
 
 //entender datos estaticos que los busque dentro de public
 app.use(express.static('public'))
-//envio de recursos - CREATE;
-//uso un middleware para esta ruta pasandolo como parametro
-app.post('/guardar', encriptar,(req,res)=>{
-    const nombre = req.body.nombre;
-    res.status(201).send('guardado '+ nombre);
-});
+
 
 //peticion de recursos - READ;
 app.get( '/',(req, res)=>{
@@ -41,7 +36,18 @@ app.get( '/',(req, res)=>{
 app.get('/descargas',(req, res)=>{
     res.download(__dirname+'/descarga.txt')
 } );
-
+//envio de recursos - CREATE;
+//uso un middleware para esta ruta pasandolo como parametro
+app.post('/guardar', encriptar,(req,res)=>{
+    const nombre = req.body.nombre;
+    res.status(201).send('guardado '+ nombre);
+});
+app.post('/formulario',(req,res)=>{
+    const nombre = req.body.nombre;
+    const apellido = req.body.apellido;
+    const email = req.body.email;
+    res.json({nombre:nombre,apellido:apellido,email:email})
+})
 //actualizacion parcial de recursos - UPDATE;
 //app.put();
 
